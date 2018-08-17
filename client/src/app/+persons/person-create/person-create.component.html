@@ -1,0 +1,22 @@
+<div class="container" fxLayout="column" [@routeAnimation]>
+  <div fxLayout="row" fxLayoutAlign="center">
+      <mat-card>
+          <mat-card-header>
+             <h2>Create Person New</h2>
+          </mat-card-header>
+
+          <mat-card-content>
+              <dx-form>
+                <dxi-item dataField="Name"></dxi-item>
+                <dxi-item dataField="Year"></dxi-item>
+                <dx-radio-group
+                    [items]="priorities"
+                    [value]="priorities[0]">
+                </dx-radio-group>
+                <dxi-item dataField="Provider"></dxi-item>
+                <dxi-item dataField="PhoneNumber"></dxi-item>
+              </dx-form>
+          </mat-card-content>
+      </mat-card>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="container" fxLayout="column" [@routeAnimation]>
+    <div fxLayout="row" fxLayoutAlign="center">
+        <mat-card>
+            <mat-card-header>
+                <!--<div mat-card-avatar class="header-image"></div>
+              <mat-card-title>{{ 'PUBLIC.HOME.CARD_TITLE' | translate }}</mat-card-title>
+              <mat-card-subtitle>{{ 'PUBLIC.HOME.CARD_SUBTITLE' | translate }}</mat-card-subtitle>-->
+                <h2 style="font-weight: bold">Danh sách Person:</h2>
+                <dx-button id="btnAdd" text="Add Person" style="float: right; width: 130px; height: 50px;" routerLink = "create"></dx-button>
+            </mat-card-header>
+
+            <mat-card-content>
+                <dx-data-grid [dataSource]="personDataSource">
+                    <dxi-column dataField="Name" caption="Họ tên"></dxi-column>
+                    <dxi-column dataField="Year" caption="Tuổi"></dxi-column>
+                    <dxi-column dataField="Provider" caption="Quê quán"></dxi-column>
+                    <dxi-column dataField="PhoneNumber" caption="Số điện thoại"></dxi-column>
+                    <dxi-column dataField="Gender" [cellTemplate]="'cellGioiTinh'" caption="Giới tính"></dxi-column>
+                    <dxi-column [cellTemplate]="'cellAction'" caption="Actions"></dxi-column>
+
+                    <div *dxTemplate="let d of 'cellGioiTinh'">
+                        <span d></span>
+                        <span *ngIf="d.value == 1">Nam</span>
+                        <span *ngIf="d.value == 0">Nữ</span>
+                    </div>
+
+                    <div *dxTemplate="let d of 'cellAction'">  
+                        <dx-button id="btnEdit" text="Edit" onclick="EditPerson()"></dx-button>
+                        <dx-button id="btnDelete" text="Delete" onclick="deletePerson()"></dx-button>
+                    </div>
+                </dx-data-grid>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
